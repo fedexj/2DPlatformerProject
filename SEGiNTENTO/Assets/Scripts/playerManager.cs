@@ -5,7 +5,7 @@ using UnityEngine;
 public class playerManager : MonoBehaviour
 {
     Animator penguinAnim;
-    Transform penguinTrans;
+    //Transform penguinTrans;
     Rigidbody2D penguinRigidBody;
     SpriteRenderer penguinSpriteRender;
 
@@ -13,6 +13,8 @@ public class playerManager : MonoBehaviour
     public AudioClip walkFX;
     public AudioClip jumpFX;
     public AudioClip teleportFX;
+
+    public float teleportDistance = 100f;
 
     private float cont = 0.22f;
     
@@ -29,7 +31,7 @@ public class playerManager : MonoBehaviour
 	void Start ()
     {
         penguinAnim = GetComponent<Animator>();
-        penguinTrans = GetComponent<Transform>();
+        //penguinTrans = GetComponent<Transform>();
         penguinRigidBody = GetComponent<Rigidbody2D>();
         penguinSpriteRender = GetComponent<SpriteRenderer>();
     }
@@ -53,11 +55,11 @@ public class playerManager : MonoBehaviour
     {
         grounded = Physics2D.OverlapCircle(groundcheck.position, groundRadious, whatIsGround);
         penguinAnim.SetBool("Ground", grounded);
-        penguinAnim.SetFloat("verticalSpeed", penguinRigidBody.velocity.y);
+        //penguinAnim.SetFloat("verticalSpeed", penguinRigidBody.velocity.y);
 
         //get direction
         float move = Input.GetAxis("Horizontal");
-        float jump = Input.GetAxis("Vertical");
+        //float jump = Input.GetAxis("Vertical");
         //add velocity to the rigidBody in the moveDirection*our speed
         penguinRigidBody.velocity = new Vector2(move * topSpeed, penguinRigidBody.velocity.y);
         //PlayWalk();
@@ -81,7 +83,7 @@ public class playerManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
-            penguinAnim.SetInteger("state", 2);   
+            penguinAnim.SetInteger("state", 3); 
         }
               
 
@@ -101,8 +103,7 @@ public class playerManager : MonoBehaviour
 
         else
         {
-            penguinAnim.SetInteger("state", 0);
-            
+            penguinAnim.SetInteger("state", 0);            
         }
         
     }
@@ -133,13 +134,16 @@ public class playerManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.LeftShift ) && penguinRigidBody.velocity.x > 0 )
         {
-            penguinRigidBody.position = new Vector2(penguinRigidBody.position.x + 3, penguinRigidBody.position.y);
+            penguinRigidBody.position = new Vector2(penguinRigidBody.position.x + teleportDistance * Time.deltaTime, penguinRigidBody.position.y);
+            penguinAnim.SetInteger("state", 3);
             SoundManager.instance.playSingle(teleportFX);
-           
+            
+
         }
         if (Input.GetKeyDown(KeyCode.LeftShift) && penguinRigidBody.velocity.x < 0)
         {
-            penguinRigidBody.position = new Vector2(penguinRigidBody.position.x - 3, penguinRigidBody.position.y);
+            penguinRigidBody.position = new Vector2(penguinRigidBody.position.x - teleportDistance * Time.deltaTime, penguinRigidBody.position.y);
+            penguinAnim.SetInteger("state", 3);
             SoundManager.instance.playSingle(teleportFX);            
         }        
     }   

@@ -9,7 +9,7 @@ public class Camera : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Transform transform = GetComponent<Transform>();
+        //Transform transform = GetComponent<Transform>();
         fantasma = GameObject.Find("Penguin").GetComponent<Transform>();
     }
 
