@@ -136,6 +136,7 @@ public class playerManager : MonoBehaviour
         {
             penguinRigidBody.position = new Vector2(penguinRigidBody.position.x + teleportDistance * Time.deltaTime, penguinRigidBody.position.y);
             penguinAnim.SetInteger("state", 3);
+            penguinSpriteRender.flipX = false;
             SoundManager.instance.playSingle(teleportFX);
             
 
@@ -144,6 +145,7 @@ public class playerManager : MonoBehaviour
         {
             penguinRigidBody.position = new Vector2(penguinRigidBody.position.x - teleportDistance * Time.deltaTime, penguinRigidBody.position.y);
             penguinAnim.SetInteger("state", 3);
+            penguinSpriteRender.flipX = true;
             SoundManager.instance.playSingle(teleportFX);            
         }        
     }   

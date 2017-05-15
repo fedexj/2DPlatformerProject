@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c10939fd95980e74294da7abf46db23b
-timeCreated: 1493753459
+timeCreated: 1493780929
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -14,6 +14,8 @@ TextureImporter:
     21300014: Sprite_FX_Lightningrecor_7
     21300016: Sprite_FX_Lightningrecor_8
     21300018: Sprite_FX_Lightningrecor_9
+    21300020: Sprite_FX_Lightningrecor_10
+    21300022: Sprite_FX_Lightningrecor_11
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -69,6 +71,14 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
     maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 1
@@ -148,7 +158,7 @@ TextureImporter:
       name: Sprite_FX_Lightningrecor_5
       rect:
         serializedVersion: 2
-        x: 17
+        x: 16
         y: 50
         width: 79
         height: 14
@@ -204,6 +214,32 @@ TextureImporter:
         y: 17
         width: 40
         height: 7
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sprite_FX_Lightningrecor_10
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 50
+        width: 85
+        height: 18
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sprite_FX_Lightningrecor_11
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 42
+        width: 90
+        height: 30
       alignment: 4
       pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
